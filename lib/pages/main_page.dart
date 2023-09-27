@@ -56,7 +56,7 @@ class MainPage extends StatelessWidget {
           ),
           ListTile(
             title: Text('Free Online Class'),
-            subtitle: Text('For over 80 lectures'),
+            subtitle: Text('Start Learning now'),
           ),
           Column(
             children: [
