@@ -15,30 +15,24 @@ class CrtCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Container(
-            width: width,
-            height: height,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Theme.of(context).colorScheme.primaryContainer,
+      child: SizedBox(
+        width: width,
+        height: height,
+        child: Padding(
+          padding: const EdgeInsets.all(5),
+          child: ListTile(
+            hoverColor: Theme.of(context).hoverColor,
+            trailing: Icon(Icons.arrow_circle_right_outlined),
+            title: Text(
+              cardtitle,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            child: Column(children: [
-              ListTile(
-                title: Text(
-                  cardtitle,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.onPrimaryContainer,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                subtitle: Text(cardsubtitle),
-              )
-            ]),
-          )
-        ],
+            subtitle: Text(cardsubtitle),
+            onTap: () => {},
+          ),
+        ),
       ),
     );
   }
