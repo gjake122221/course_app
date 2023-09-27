@@ -31,7 +31,7 @@ class MainPage extends StatelessWidget {
               card4,
               card5,
               card6,
-              card4,
+              card7,
             ],
           ),
         ],
