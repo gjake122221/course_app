@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../appstate/my_appstate.dart';
 import '../content/cards.dart';
 
 class MainPage extends StatelessWidget {
@@ -9,7 +7,6 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
       child: Column(
@@ -23,24 +20,28 @@ class MainPage extends StatelessWidget {
                   cardsubtitle: 'Mobile Applications',
                   width: 200,
                   height: 300,
+                  id: 0,
                 ),
                 CrtCard(
                   cardtitle: 'AppsDev',
                   cardsubtitle: 'HTML CSS JS',
                   width: 200,
                   height: 300,
+                  id: 1,
                 ),
                 CrtCard(
                   cardtitle: 'IM2',
                   cardsubtitle: 'Data Management',
                   width: 200,
                   height: 300,
+                  id: 2,
                 ),
                 CrtCard(
                   cardtitle: 'Net2',
                   cardsubtitle: 'Networking',
                   width: 200,
                   height: 300,
+                  id: 3,
                 ),
               ],
             ),
@@ -56,24 +57,28 @@ class MainPage extends StatelessWidget {
                 cardsubtitle: 'Object Oreinted Programing',
                 width: 330,
                 height: 120,
+                id: 4,
               ),
               CrtCard(
                 cardtitle: 'Programing',
                 cardsubtitle: 'Learn in C',
                 width: 330,
                 height: 120,
+                id: 5,
               ),
               CrtCard(
                 cardtitle: 'CodeLab',
                 cardsubtitle: 'Make your first App',
                 width: 330,
                 height: 120,
+                id: 6,
               ),
               CrtCard(
                 cardtitle: 'DVA',
                 cardsubtitle: 'Digital Arts',
                 width: 330,
                 height: 120,
+                id: 7,
               ),
             ],
           ),
