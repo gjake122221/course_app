@@ -6,7 +6,7 @@ import '../pages/main_page.dart';
 class MyAppState extends ChangeNotifier {
   Widget cardTitle = MainPage();
   void cardtitle(value) {
-    Widget? page;
+    Widget page;
     switch (value) {
       case 0:
         page = NewPage();

@@ -8,12 +8,16 @@ class CrtCard extends StatelessWidget {
     super.key,
     required this.cardtitle,
     required this.cardsubtitle,
+    required this.cardimage,
+    required this.scale,
     required this.width,
     required this.height,
     required this.id,
   });
   final String cardtitle;
   final String cardsubtitle;
+  final String cardimage;
+  final double scale;
   final double width;
   final double height;
   final int id;
@@ -21,9 +25,17 @@ class CrtCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     return Card(
-      child: SizedBox(
+      child: Container(
         width: width,
         height: height,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            scale: scale,
+            image: AssetImage(cardimage),
+            alignment: Alignment.bottomRight,
+            fit: BoxFit.none,
+          ),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(5),
           child: ListTile(
