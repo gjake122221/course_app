@@ -13,7 +13,8 @@ class CrtCard extends StatelessWidget {
     required this.width,
     required this.height,
     required this.id,
-    this.suggestion,
+    required this.suggestion,
+    required this.visibleRating,
   });
   final String cardtitle;
   final String cardsubtitle;
@@ -22,7 +23,8 @@ class CrtCard extends StatelessWidget {
   final double width;
   final double height;
   final int id;
-  final String? suggestion;
+  final String suggestion;
+  final bool visibleRating;
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
@@ -51,7 +53,10 @@ class CrtCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                subtitle: Text(cardsubtitle),
+                subtitle: Text(
+                  cardsubtitle,
+                  overflow: TextOverflow.ellipsis,
+                ),
                 onTap: () => {
                   appState.cardtitle(id),
                 },
@@ -64,10 +69,64 @@ class CrtCard extends StatelessWidget {
             child: Card(
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(suggestion!),
+                child: Text(suggestion),
               ),
             ),
           ),
+          Positioned(
+              top: 60,
+              left: 15,
+              child: Visibility(
+                visible: visibleRating,
+                child: StarRating(),
+              ))
+        ],
+      ),
+    );
+  }
+}
+
+class StarRating extends StatefulWidget {
+  const StarRating({super.key});
+
+  @override
+  State<StarRating> createState() => _StarRatingState();
+}
+
+class _StarRatingState extends State<StarRating> {
+  var count = 0;
+  List<IconData> icon = [
+    Icons.star_border,
+    Icons.star_border,
+    Icons.star_border,
+    Icons.star_border,
+    Icons.star_border,
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      iconSize: 15,
+      onPressed: () {
+        setState(() {
+          if (count < 5) {
+            icon[count] = Icons.star;
+            count++;
+          } else {
+            for (var i = 0; i < icon.length; i++) {
+              icon[i] = Icons.star_border;
+            }
+            count = 0;
+          }
+        });
+      },
+      icon: Row(
+        children: [
+          Icon(icon[0]),
+          Icon(icon[1]),
+          Icon(icon[2]),
+          Icon(icon[3]),
+          Icon(icon[4]),
         ],
       ),
     );
@@ -83,6 +142,7 @@ var card0h = CrtCard(
   height: 300,
   id: 0,
   suggestion: 'Recommended',
+  visibleRating: false,
 );
 var card1h = CrtCard(
   cardtitle: 'AppsDev',
@@ -93,6 +153,7 @@ var card1h = CrtCard(
   height: 300,
   id: 1,
   suggestion: 'New Class',
+  visibleRating: false,
 );
 var card2h = CrtCard(
   cardtitle: 'IM2',
@@ -103,6 +164,7 @@ var card2h = CrtCard(
   height: 300,
   id: 2,
   suggestion: 'New Class',
+  visibleRating: false,
 );
 var card3h = CrtCard(
   cardtitle: 'Net2',
@@ -113,6 +175,7 @@ var card3h = CrtCard(
   height: 300,
   id: 3,
   suggestion: 'Recommended',
+  visibleRating: false,
 );
 var card0v = CrtCard(
   cardtitle: 'SP Elec 1B',
@@ -123,6 +186,7 @@ var card0v = CrtCard(
   height: 120,
   id: 0,
   suggestion: '',
+  visibleRating: true,
 );
 var card1v = CrtCard(
   cardtitle: 'AppsDev',
@@ -133,6 +197,7 @@ var card1v = CrtCard(
   height: 120,
   id: 1,
   suggestion: '',
+  visibleRating: true,
 );
 var card2v = CrtCard(
   cardtitle: 'IM2',
@@ -143,6 +208,7 @@ var card2v = CrtCard(
   height: 120,
   id: 2,
   suggestion: '',
+  visibleRating: true,
 );
 var card3v = CrtCard(
   cardtitle: 'Net2',
@@ -153,6 +219,7 @@ var card3v = CrtCard(
   height: 120,
   id: 3,
   suggestion: '',
+  visibleRating: true,
 );
 var card4v = CrtCard(
   cardtitle: 'OOP',
@@ -163,6 +230,7 @@ var card4v = CrtCard(
   height: 120,
   id: 4,
   suggestion: '',
+  visibleRating: true,
 );
 var card5v = CrtCard(
   cardtitle: 'Programing',
@@ -173,6 +241,7 @@ var card5v = CrtCard(
   height: 120,
   id: 5,
   suggestion: '',
+  visibleRating: true,
 );
 var card6v = CrtCard(
   cardtitle: 'CodeLab',
@@ -183,6 +252,7 @@ var card6v = CrtCard(
   height: 120,
   id: 6,
   suggestion: '',
+  visibleRating: true,
 );
 var card7v = CrtCard(
   cardtitle: 'DVA',
@@ -193,4 +263,5 @@ var card7v = CrtCard(
   height: 120,
   id: 7,
   suggestion: '',
+  visibleRating: true,
 );
