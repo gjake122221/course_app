@@ -82,6 +82,7 @@ var page6TextContent = 'Flutter is Google'
     's UI toolkit for building applications for mobile, web, and desktop from a single codebase. In this codelab, you will build the following Flutter application:The application generates cool-sounding names, such as "newstay", "lightstream", "mainbrake", or "graypine". The user can ask for the next name, favorite the current one, and review the list of favorited names on a separate page. The app is responsive to different screen sizes.';
 var page7TextContent =
     'Digital visual arts refer to artistic creations and expressions that are produced using digital technology and tools. These artworks can encompass a wide range of styles, techniques, and mediums, including digital painting, digital photography, computer-generated graphics, 3D modeling and animation, digital collage, and more. Digital visual arts have gained significant prominence in contemporary art and have opened up new creative possibilities for artists.';
+
 var page0 = NewPage(
   pagetitle: 'SP Elec 1B',
   pageimg: 'image/Ellipse 2.png',

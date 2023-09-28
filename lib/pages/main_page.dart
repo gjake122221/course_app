@@ -15,10 +15,10 @@ class MainPage extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: [
-                card0,
-                card1,
-                card2,
-                card3,
+                card0h,
+                card1h,
+                card2h,
+                card3h,
               ],
             ),
           ),
@@ -28,10 +28,14 @@ class MainPage extends StatelessWidget {
           ),
           Column(
             children: [
-              card4,
-              card5,
-              card6,
-              card7,
+              card7v,
+              card5v,
+              card4v,
+              card3v,
+              card2v,
+              card1v,
+              card6v,
+              card0v,
             ],
           ),
         ],

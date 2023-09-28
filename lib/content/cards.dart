@@ -13,6 +13,7 @@ class CrtCard extends StatelessWidget {
     required this.width,
     required this.height,
     required this.id,
+    this.suggestion,
   });
   final String cardtitle;
   final String cardsubtitle;
@@ -21,42 +22,59 @@ class CrtCard extends StatelessWidget {
   final double width;
   final double height;
   final int id;
+  final String? suggestion;
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     return Card(
-      child: Container(
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            scale: scale,
-            image: AssetImage(cardimage),
-            alignment: Alignment.bottomRight,
-            fit: BoxFit.none,
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(5),
-          child: ListTile(
-            hoverColor: Theme.of(context).hoverColor,
-            trailing: Icon(Icons.arrow_circle_right_outlined),
-            title: Text(
-              cardtitle,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
+      child: Stack(
+        children: <Widget>[
+          Container(
+            width: width,
+            height: height,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                scale: scale,
+                image: AssetImage(cardimage),
+                alignment: Alignment.bottomRight,
+                fit: BoxFit.none,
               ),
             ),
-            subtitle: Text(cardsubtitle),
-            onTap: () => {appState.cardtitle(id)},
+            child: Padding(
+              padding: const EdgeInsets.all(5),
+              child: ListTile(
+                hoverColor: Theme.of(context).hoverColor,
+                trailing: Icon(Icons.arrow_circle_right_outlined),
+                title: Text(
+                  cardtitle,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                subtitle: Text(cardsubtitle),
+                onTap: () => {
+                  appState.cardtitle(id),
+                },
+              ),
+            ),
           ),
-        ),
+          Positioned(
+            top: 250,
+            left: 10,
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(suggestion!),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
 }
 
-var card0 = CrtCard(
+var card0h = CrtCard(
   cardtitle: 'SP Elec 1B',
   cardsubtitle: 'Mobile Applications',
   cardimage: 'image/Saly-card1.png',
@@ -64,8 +82,9 @@ var card0 = CrtCard(
   width: 200,
   height: 300,
   id: 0,
+  suggestion: 'Recommended',
 );
-var card1 = CrtCard(
+var card1h = CrtCard(
   cardtitle: 'AppsDev',
   cardsubtitle: 'HTML CSS JS',
   cardimage: 'image/Saly-card2.png',
@@ -73,8 +92,9 @@ var card1 = CrtCard(
   width: 200,
   height: 300,
   id: 1,
+  suggestion: 'New Class',
 );
-var card2 = CrtCard(
+var card2h = CrtCard(
   cardtitle: 'IM2',
   cardsubtitle: 'Data Management',
   cardimage: 'image/Saly-card1.png',
@@ -82,44 +102,89 @@ var card2 = CrtCard(
   width: 200,
   height: 300,
   id: 2,
+  suggestion: 'New Class',
 );
-var card3 = CrtCard(
+var card3h = CrtCard(
   cardtitle: 'Net2',
   cardsubtitle: 'Networking',
   cardimage: 'image/Saly-card2.png',
-  scale: 1.5,
+  scale: 1,
   width: 200,
   height: 300,
   id: 3,
+  suggestion: 'Recommended',
 );
-var card4 = CrtCard(
+var card0v = CrtCard(
+  cardtitle: 'SP Elec 1B',
+  cardsubtitle: 'Mobile Applications',
+  cardimage: 'image/Saly-24.png',
+  scale: 1,
+  width: 330,
+  height: 120,
+  id: 0,
+  suggestion: '',
+);
+var card1v = CrtCard(
+  cardtitle: 'AppsDev',
+  cardsubtitle: 'HTML CSS JS',
+  cardimage: 'image/Saly-24.png',
+  scale: 1,
+  width: 330,
+  height: 120,
+  id: 1,
+  suggestion: '',
+);
+var card2v = CrtCard(
+  cardtitle: 'IM2',
+  cardsubtitle: 'Data Management',
+  cardimage: 'image/Saly-24.png',
+  scale: 1,
+  width: 330,
+  height: 120,
+  id: 2,
+  suggestion: '',
+);
+var card3v = CrtCard(
+  cardtitle: 'Net2',
+  cardsubtitle: 'Networking',
+  cardimage: 'image/Saly-24.png',
+  scale: 1,
+  width: 330,
+  height: 120,
+  id: 3,
+  suggestion: '',
+);
+var card4v = CrtCard(
   cardtitle: 'OOP',
   cardsubtitle: 'Object Oreinted Programing',
-  cardimage: 'image/Saly-20.png',
+  cardimage: 'image/Saly-24.png',
   scale: 1,
   width: 330,
   height: 120,
   id: 4,
+  suggestion: '',
 );
-var card5 = CrtCard(
+var card5v = CrtCard(
   cardtitle: 'Programing',
   cardsubtitle: 'Learn in C',
-  cardimage: 'image/Saly-21.png',
+  cardimage: 'image/Saly-24.png',
   scale: 1,
   width: 330,
   height: 120,
   id: 5,
+  suggestion: '',
 );
-var card6 = CrtCard(
+var card6v = CrtCard(
   cardtitle: 'CodeLab',
   cardsubtitle: 'Make your first App',
-  cardimage: 'image/Saly-23.png',
+  cardimage: 'image/Saly-24.png',
   scale: 1,
   width: 330,
   height: 120,
   id: 6,
+  suggestion: '',
 );
-var card7 = CrtCard(
+var card7v = CrtCard(
   cardtitle: 'DVA',
   cardsubtitle: 'Digital Arts',
   cardimage: 'image/Saly-24.png',
@@ -127,4 +192,5 @@ var card7 = CrtCard(
   width: 330,
   height: 120,
   id: 7,
+  suggestion: '',
 );
